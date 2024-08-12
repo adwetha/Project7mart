@@ -28,10 +28,12 @@ public class ManageProduct {
 		public void ClickOnSignInButton() {
 			LoginButton.click();
 		}
-	public boolean DeleteFromManageProduct() {
+	public void DeleteFromManageProduct() {
 		managegetinfo.click();
 		deletemanageproduct.click();
 		driver.switchTo().alert().accept();
+	}
+	public boolean alertMessageDisplayed() {
 		return deletealert.isDisplayed();
 	}
 }
