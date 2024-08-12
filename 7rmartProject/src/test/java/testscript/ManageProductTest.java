@@ -15,7 +15,8 @@ public class ManageProductTest extends Base{
 		manageproduct.enterUsernameOnUsernameField(username);
 		manageproduct.enterPasswordOnPasswordField(password);
 		manageproduct.ClickOnSignInButton();
-		boolean DeleteFromManageProduct=manageproduct.DeleteFromManageProduct();
-		assertTrue(DeleteFromManageProduct,"Product is not deleted when user try to delete it");
+		manageproduct.DeleteFromManageProduct();
+		boolean alertmessagedisplayed=manageproduct.alertMessageDisplayed();
+		assertTrue(alertmessagedisplayed,"Product is not deleted when user try to delete it");
 	}
 }
