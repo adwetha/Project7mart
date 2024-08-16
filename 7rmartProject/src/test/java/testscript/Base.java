@@ -15,6 +15,6 @@ public void initialiseBrowser() {
 }
 @AfterTest
 public void QuitAndClose() {
-	driver.quit();
+	//driver.quit();
 }
 }

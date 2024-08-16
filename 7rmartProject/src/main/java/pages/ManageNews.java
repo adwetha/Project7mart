@@ -29,10 +29,16 @@ public class ManageNews {
 		public void ClickOnSignInButton() {
 			LoginButton.click();
 		}
-	public void enterNewsInformation() {
+	public void clickOnMoreInfo() {
 		newsgetinfo.click();
+	}
+	public void clickOnNew() {
 		newnews.click();
-		enternews.sendKeys("Help for wayanad");
+	}
+	public void enterNewNews(String news) {
+		enternews.sendKeys(news);
+	}
+	public void clickOnSave() {
 		newssave.click();
 	}
 		public boolean AlertMessageManageNews() {

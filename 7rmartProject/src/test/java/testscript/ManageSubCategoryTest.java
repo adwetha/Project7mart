@@ -2,14 +2,17 @@ package testscript;
 
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
+
 import org.testng.annotations.Test;
 import pages.ManageSubCategory;
+import utilities.ExcelUtility;
 
 public class ManageSubCategoryTest extends Base{
 @Test
-public void VerifyWhetherUserCanChangeStatus() {
-	String username="admin";
-	String password="admin";
+public void VerifyWhetherUserCanChangeStatus() throws IOException {
+	String username=ExcelUtility.getStringData(1, 0, "ManageSubCategory");
+	String password=ExcelUtility.getStringData(1, 1, "ManageSubCategory");
 	ManageSubCategory managesubcategory=new ManageSubCategory(driver);
 	managesubcategory.enterUsernameOnUsernameField(username);
 	managesubcategory.enterPasswordOnPasswordField(password);
