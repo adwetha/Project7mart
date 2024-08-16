@@ -15,5 +15,16 @@
     <version>7.8.0</version>
     <scope>test</scope>
 </dependency>
+<dependency>
+<groupId>org.apache.poi</groupId>
+	<artifactId>poi</artifactId>
+	<version>3.7</version>
+	</dependency>
+	<!-- https://mvnrepository.com/ -->
+	<dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-ooxml</artifactId>
+	<version>3.7</version>
+	</dependency>
 </dependencies>
 </project>

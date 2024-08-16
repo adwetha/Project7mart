@@ -24,7 +24,7 @@ public class LoginPage {
 	public void enterPasswordOnPasswordField(String password) {
 		PasswordField.sendKeys(password);
 	}
-	public void ClickOnSignInButton() {
+	public void clickOnSignInButton() {
 		LoginButton.click();
 	}
 	public boolean isHomePageLoaded() {

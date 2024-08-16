@@ -17,8 +17,8 @@ public AdminUser(WebDriver driver) {
 @FindBy(xpath="//button[@type=\"submit\"]") WebElement LoginButton;	
 @FindBy(css="a.small-box-footer[href=\"https://groceryapp.uniqassosiates.com/admin/list-admin\"]")WebElement moreinfo;
 @FindBy(xpath="//a[@onclick=\"click_button(1)\"]")WebElement newadmin;
-@FindBy(xpath="//input[@name=\"username\"]")WebElement username;
-@FindBy(xpath="//input[@name=\"password\"]")WebElement password;
+@FindBy(xpath="//input[@name=\"username\"]")WebElement adminUserName;
+@FindBy(xpath="//input[@name=\"password\"]")WebElement adminPassword;
 @FindBy(xpath="//select[@name=\"user_type\"]")WebElement usertype;
 @FindBy(xpath="//button[@name=\"Create\"]")WebElement save;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
@@ -28,7 +28,7 @@ public void enterUsernameOnUsernameField(String username) {
 	public void enterPasswordOnPasswordField(String password) {
 		PasswordField.sendKeys(password);
 	}
-	public void ClickOnSignInButton() {
+	public void cickOnSignInButton() {
 		LoginButton.click();
 	}
 	public void clickOnMoreInfo() {
@@ -37,9 +37,13 @@ public void enterUsernameOnUsernameField(String username) {
 	public void clickOnNewButton() {
 		newadmin.click();
 	}
-	public void AdminUserInformation() {
-		username.sendKeys("anagha");
-		password.sendKeys("an36gh87a");
+	public void enterAdminUserInformationUsernameField(String adminusername) {
+		adminUserName.sendKeys(adminusername);
+	}
+	public void enterAdminUserInformationPasswordField(String adminpassword) {
+		adminPassword.sendKeys(adminpassword);
+	}
+	public void selectAdminUserInformationUsertype() {
         Select dropdown=new Select(usertype);
         dropdown.selectByIndex(2);
 	}
