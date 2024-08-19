@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class LoginPage {
 	WebDriver driver;
 	public LoginPage(WebDriver driver)
@@ -28,9 +30,11 @@ public class LoginPage {
 		LoginButton.click();
 	}
 	public boolean isHomePageLoaded() {
-		return dashboard.isDisplayed();
+		PageUtility pageutility=new PageUtility();
+		return pageutility.alertDisplay(dashboard);
 	}
 	public boolean isAlertMessageDisplayed() {
-		return alert.isDisplayed();
+		PageUtility pageutility=new PageUtility();
+		return pageutility.alertDisplay(alert);
 	}
 }

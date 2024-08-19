@@ -36,7 +36,7 @@ public void VerifyWhetherUserIsAbleToLoginUsingInvalidUsernameAndValidPassword()
 	boolean isAlertMessageDisplayed=loginpage.isAlertMessageDisplayed();
 	assertTrue(isAlertMessageDisplayed,"Home page is loaded when user enter invalid credential");
 }
-@Test
+@Test(description="")
 public void VerifyWhetherUserIsAbleToLoginUsingValidUsernameAndInvalidPassword() throws IOException {
 	//String username="admin";
 	//String password="ad123";

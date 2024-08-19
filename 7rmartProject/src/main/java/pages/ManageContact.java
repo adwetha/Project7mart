@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class ManageContact {
 WebDriver driver;
 public ManageContact(WebDriver driver) {
@@ -40,24 +42,30 @@ public void clickOnActionButton() {
 	action.click();
 }
 public void enterContactDetailsPhoneNo(String phoneno ) {
+	phoneField.clear();
 	phoneField.sendKeys(phoneno);
 }
 public void enterContactDetailsEmailid(String email) {
+	emailField.clear();
 	emailField.sendKeys(email);
 }
 public void enterContactDetailsAddress(String address) {
+	addressField.clear();
 	addressField.sendKeys(address);
 }public void enterContactDetailsDeleveritime(String deliverytime) {
+	deliverytimeField.clear();
 	deliverytimeField.sendKeys(deliverytime);
 }
 public void enterContactDetailsDeliverycharge(String deliverycharge) {
+	deliverychargelimitField.clear();
 	deliverychargelimitField.sendKeys(deliverycharge);
 }
 public void clickOnUpdateButton() {
-	JavascriptExecutor js=(JavascriptExecutor)driver;
-	js.executeScript("arguments[0].click();",update);
+	PageUtility pageutility=new PageUtility();
+	pageutility.javaSriptClick(driver, update);
 }
 public boolean alertMessage() {
-	return alert.isDisplayed();
+	PageUtility pageutility=new PageUtility();
+	return pageutility.alertDisplay(alert);
 }
 }
