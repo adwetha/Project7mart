@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminUser {
 WebDriver driver;
 public AdminUser(WebDriver driver) {
@@ -22,6 +24,8 @@ public AdminUser(WebDriver driver) {
 @FindBy(xpath="//select[@name=\"user_type\"]")WebElement usertype;
 @FindBy(xpath="//button[@name=\"Create\"]")WebElement save;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
+@FindBy(xpath="/html/body/div/div[1]/section/div[2]/div/div[3]/div[2]/table/tbody/tr[1]/td[5]/a[1]")WebElement lock;
+@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alertmessage;
 public void enterUsernameOnUsernameField(String username) {
 	   usernameField.sendKeys(username);
 	}
@@ -44,17 +48,23 @@ public void enterUsernameOnUsernameField(String username) {
 		adminPassword.sendKeys(adminpassword);
 	}
 	public void selectAdminUserInformationUsertype() {
-        Select dropdown=new Select(usertype);
-        dropdown.selectByIndex(2);
+		PageUtility pageutility=new PageUtility();
+        pageutility.selectByIndex(usertype, 1);
 	}
 	public void clickOnSaveButton() {
 		save.click();
 	}
 	public boolean alertMessage() {
-		return alert.isDisplayed();
+		PageUtility pageutility=new PageUtility();
+		return pageutility.alertDisplay(alert);
 	}
-	
-	
+	public void clickOnLockButton() {
+		lock.click();
+	}
+	public boolean alertLockMessage() {
+		PageUtility pageutility=new PageUtility();
+		return pageutility.alertDisplay(alertmessage);
+	}
 	
 	
 	

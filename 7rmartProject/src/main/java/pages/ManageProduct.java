@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class ManageProduct {
 	WebDriver driver;
 	public ManageProduct(WebDriver driver)
@@ -31,9 +33,11 @@ public class ManageProduct {
 	public void DeleteFromManageProduct() {
 		managegetinfo.click();
 		deletemanageproduct.click();
-		driver.switchTo().alert().accept();
+		PageUtility pageutility=new PageUtility();
+		pageutility.acceptAlert(driver);
 	}
 	public boolean alertMessageDisplayed() {
-		return deletealert.isDisplayed();
+		PageUtility pageutility=new PageUtility();
+		return pageutility.alertDisplay(deletealert);
 	}
 }

@@ -29,6 +29,19 @@ public void VerifyWhetherUserIsAbleToCreateNewUser() throws IOException {
 	adminuser.selectAdminUserInformationUsertype();
 	adminuser.clickOnSaveButton();
 	boolean alertMessage=adminuser.alertMessage();
-	assertTrue(alertMessage,"User is not able to update staus");
+	assertTrue(alertMessage,"User is not able to update status");
+}
+@Test
+public void VerifyWhetherAdminCanChangeLockStatus() throws IOException {
+	String username=ExcelUtility.getStringData(1, 0, "AdminUser");
+	String password=ExcelUtility.getStringData(1, 1, "AdminUser");
+	AdminUser adminuser=new AdminUser(driver);
+	adminuser.enterUsernameOnUsernameField(username);
+	adminuser.enterPasswordOnPasswordField(password);
+	adminuser.cickOnSignInButton();
+	adminuser.clickOnMoreInfo();
+	adminuser.clickOnLockButton();
+	boolean alertmessage=adminuser.alertLockMessage();
+	assertTrue(alertmessage,"User is not able to click lock");
 }
 }

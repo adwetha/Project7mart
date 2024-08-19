@@ -26,4 +26,18 @@ public class ManageNewsTest extends Base{
 		boolean  AlertMessageManageNews=managenews. AlertMessageManageNews();
 		assertTrue( AlertMessageManageNews,"News is not saved when user enter details and save");
 	}
+	@Test
+	public void verifyWhetherUserIsAbleToDeleteNews() throws IOException {
+		String username=ExcelUtility.getStringData(1, 0, "ManageNews");
+		String password=ExcelUtility.getStringData(1, 1, "ManageNews");
+		ManageNews managenews=new ManageNews(driver);
+		managenews.enterUsernameOnUsernameField(username);
+		managenews.enterPasswordOnPasswordField(password);
+		managenews.ClickOnSignInButton();
+		managenews.clickOnMoreInfo();
+		managenews.clickOnDelete();
+		managenews.alertAfterDelete();
+		boolean alertdisplayed=managenews.alertIsDisplayed();
+		assertTrue(alertdisplayed,"User is not able to Delete news");
+	}
 }
