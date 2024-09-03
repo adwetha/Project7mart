@@ -10,7 +10,7 @@ import pages.ManageProduct;
 import utilities.ExcelUtility;
 
 public class ManageProductTest extends Base{
-	@Test
+	@Test(description="Verify that user is able to delete product from the manage product module")
 	public void VerifyWhetherUserIsAbleToDeleteProductList() throws IOException {
 		String username=ExcelUtility.getStringData(1, 0, "ManageProduct");
 		String password=ExcelUtility.getStringData(1, 1, "ManageProduct");

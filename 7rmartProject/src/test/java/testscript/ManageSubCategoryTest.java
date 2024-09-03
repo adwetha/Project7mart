@@ -9,7 +9,7 @@ import pages.ManageSubCategory;
 import utilities.ExcelUtility;
 
 public class ManageSubCategoryTest extends Base{
-@Test
+@Test(description="Verify if user can change status of category from active to inactive and vise versa")
 public void VerifyWhetherUserCanChangeStatus() throws IOException {
 	String username=ExcelUtility.getStringData(1, 0, "ManageSubCategory");
 	String password=ExcelUtility.getStringData(1, 1, "ManageSubCategory");

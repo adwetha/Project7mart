@@ -9,7 +9,7 @@ import pages.ManageCategory;
 import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base{
-@Test
+@Test(description="Verify that user can add new category to manage category")
 public void verifyWhetherUserCanAddCategory ()throws IOException{
 	String username=ExcelUtility.getStringData(1, 0, "ManageCategory");
 	String password=ExcelUtility.getStringData(1, 1, "ManageCategory");
