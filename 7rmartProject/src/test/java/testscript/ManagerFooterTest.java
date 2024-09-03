@@ -10,7 +10,7 @@ import pages.ManageFooter;
 import utilities.ExcelUtility;
 
 public class ManagerFooterTest extends Base{
-@Test
+@Test(description="Verify if user can update the footer in the manage footer module")
 public void VerifyWhetherUserCanUpdateManageFooter() throws IOException {
 	String username=ExcelUtility.getStringData(1, 0, "ManageFooter");
 	String password=ExcelUtility.getStringData(1, 1, "ManageFooter");

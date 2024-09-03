@@ -1,23 +1,60 @@
 package testscript;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
+import constants.Constants;
+import utilities.ScreenshotUtility;
 
 public class Base {
 public WebDriver driver;
-@BeforeTest
-public void initialiseBrowser() {
-	driver=new ChromeDriver();
-	driver.get("https://groceryapp.uniqassosiates.com/admin");
+public Properties properties;
+public FileInputStream fileinputstream;
+public ScreenshotUtility scrshot;
+@BeforeMethod(alwaysRun=true)
+@Parameters("browser")
+public void initialiseBrowser(String browser) throws Exception {
+	try {
+		properties=new Properties();
+	    fileinputstream=new FileInputStream(Constants.CONFIGFILE);
+	    properties.load(fileinputstream);
+	}
+	catch(Exception e) {
+		e.printStackTrace();
+	}
+	if(browser.equalsIgnoreCase("Chrome")) {
+		driver=new ChromeDriver();
+	}
+		else if(browser.equalsIgnoreCase("Edge")) {
+		driver=new EdgeDriver();
+	}
+		else if(browser.equalsIgnoreCase("Firefox")) {
+			driver=new FirefoxDriver();
+	}
+		else {
+			throw new Exception("Incorrect Browser");
+		}
+	driver.get(properties.getProperty("url"));
 	driver.manage().window().maximize();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
-@AfterTest
-public void QuitAndClose() {
+@AfterMethod(alwaysRun=true)
+public void browserQuit(ITestResult iTestResult) throws IOException {
+	if (iTestResult.getStatus() == ITestResult.FAILURE) {
+		scrshot = new ScreenshotUtility();
+		scrshot.getScreenShot(driver, iTestResult.getName());	
+	}
 	driver.quit();
 }
 }

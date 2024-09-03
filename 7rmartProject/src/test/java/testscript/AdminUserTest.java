@@ -10,7 +10,7 @@ import pages.AdminUser;
 import utilities.ExcelUtility;
 
 public class AdminUserTest extends Base{
-@Test
+@Test(description="The testcase is created to verify whether user is able to create new user.We enter the user name and password and create a new user.")
 public void VerifyWhetherUserIsAbleToCreateNewUser() throws IOException {
 	//String username="admin";
 	//String password="admin";
@@ -31,7 +31,7 @@ public void VerifyWhetherUserIsAbleToCreateNewUser() throws IOException {
 	boolean alertMessage=adminuser.alertMessage();
 	assertTrue(alertMessage,"User is not able to update status");
 }
-@Test
+@Test(description="The testcase verify whether user can lock and unlock the user to active and inactive state")
 public void VerifyWhetherAdminCanChangeLockStatus() throws IOException {
 	String username=ExcelUtility.getStringData(1, 0, "AdminUser");
 	String password=ExcelUtility.getStringData(1, 1, "AdminUser");

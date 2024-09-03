@@ -10,7 +10,7 @@ import pages.ManageContact;
 import utilities.ExcelUtility;
 
 public class ManageContactTest extends Base{
-@Test
+@Test(description="Verify whther user can update the contact already saved")
 public void VerifyWhetherUserIsAbleToUpdateManageContact() throws IOException {
 	String username=ExcelUtility.getStringData(1, 0, "ManageContact");
 	String password=ExcelUtility.getStringData(1, 1, "ManageContact");
