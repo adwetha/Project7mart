@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import utilities.PageUtility;
 
@@ -14,9 +13,6 @@ public AdminUser(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 }
-@FindBy(xpath="//input[@placeholder=\"Username\"]") WebElement usernameField;
-@FindBy(xpath="//input[@placeholder=\"Password\"]") WebElement PasswordField;
-@FindBy(xpath="//button[@type=\"submit\"]") WebElement LoginButton;	
 @FindBy(css="a.small-box-footer[href=\"https://groceryapp.uniqassosiates.com/admin/list-admin\"]")WebElement moreinfo;
 @FindBy(xpath="//a[@onclick=\"click_button(1)\"]")WebElement newadmin;
 @FindBy(xpath="//input[@name=\"username\"]")WebElement adminUserName;
@@ -26,44 +22,42 @@ public AdminUser(WebDriver driver) {
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
 @FindBy(xpath="/html/body/div/div[1]/section/div[2]/div/div[3]/div[2]/table/tbody/tr[1]/td[5]/a[1]")WebElement lock;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alertmessage;
-public void enterUsernameOnUsernameField(String username) {
-	   usernameField.sendKeys(username);
-	}
-	public void enterPasswordOnPasswordField(String password) {
-		PasswordField.sendKeys(password);
-	}
-	public void cickOnSignInButton() {
-		LoginButton.click();
-	}
-	public void clickOnMoreInfo() {
+	public AdminUser clickOnMoreInfo() {
 		moreinfo.click();
+		return this;
 }
-	public void clickOnNewButton() {
+	public AdminUser clickOnNewButton() {
 		newadmin.click();
+		return this;
 	}
-	public void enterAdminUserInformationUsernameField(String adminusername) {
+	public AdminUser enterAdminUserInformationUsernameField(String adminusername) {
 		adminUserName.sendKeys(adminusername);
+		return this;
 	}
-	public void enterAdminUserInformationPasswordField(String adminpassword) {
+	public AdminUser enterAdminUserInformationPasswordField(String adminpassword) {
 		adminPassword.sendKeys(adminpassword);
+		return this;
 	}
-	public void selectAdminUserInformationUsertype() {
+	public AdminUser selectAdminUserInformationUsertype() {
 		PageUtility pageutility=new PageUtility();
         pageutility.selectByIndex(usertype, 1);
+		return this;
 	}
-	public void clickOnSaveButton() {
+	public AdminUser clickOnSaveButton() {
 		save.click();
+		return this;
 	}
 	public boolean alertMessage() {
 		PageUtility pageutility=new PageUtility();
-		return pageutility.alertDisplay(alert);
+		return pageutility.isAlertDisplay(alert);
 	}
-	public void clickOnLockButton() {
+	public AdminUser clickOnLockButton() {
 		lock.click();
+		return this;
 	}
 	public boolean alertLockMessage() {
 		PageUtility pageutility=new PageUtility();
-		return pageutility.alertDisplay(alertmessage);
+		return pageutility.isAlertDisplay(alertmessage);
 	}
 	
 	

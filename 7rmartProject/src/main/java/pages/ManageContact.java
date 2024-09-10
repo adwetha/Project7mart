@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,9 +13,6 @@ public ManageContact(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 }
-@FindBy(xpath="//input[@placeholder=\"Username\"]") WebElement usernameField;
-@FindBy(xpath="//input[@placeholder=\"Password\"]") WebElement PasswordField;
-@FindBy(xpath="//button[@type=\"submit\"]") WebElement LoginButton;
 @FindBy(css="a.small-box-footer[href=\"https://groceryapp.uniqassosiates.com/admin/list-contact\"]")WebElement moreinfo;
 @FindBy(xpath="//a[@class=\"btn btn-sm btn btn-primary btncss\"]")WebElement action;
 @FindBy(xpath="//input[@name=\"phone\"]")WebElement phoneField;
@@ -26,46 +22,45 @@ public ManageContact(WebDriver driver) {
 @FindBy(xpath="//input[@name=\"del_limit\"]")WebElement deliverychargelimitField;
 @FindBy(xpath="//button[@class=\"btn btn-block-sm btn-info\"]")WebElement update;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
-public void enterUsernameOnUsernameField(String username) {
-	   usernameField.sendKeys(username);
-	}
-	public void enterPasswordOnPasswordField(String password) {
-		PasswordField.sendKeys(password);
-	}
-	public void clickOnSignInButton() {
-		LoginButton.click();
-	}
-public void clickMoreinfoButton() {
+public ManageContact clickMoreinfoButton() {
 	moreinfo.click();
+	return this;
 }
-public void clickOnActionButton() {
+public ManageContact clickOnActionButton() {
 	action.click();
+	return this;
 }
-public void enterContactDetailsPhoneNo(String phoneno ) {
+public ManageContact enterContactDetailsPhoneNo(String phoneno ) {
 	phoneField.clear();
 	phoneField.sendKeys(phoneno);
+	return this;
 }
-public void enterContactDetailsEmailid(String email) {
+public ManageContact enterContactDetailsEmailid(String email) {
 	emailField.clear();
 	emailField.sendKeys(email);
+	return this;
 }
-public void enterContactDetailsAddress(String address) {
+public ManageContact enterContactDetailsAddress(String address) {
 	addressField.clear();
 	addressField.sendKeys(address);
-}public void enterContactDetailsDeleveritime(String deliverytime) {
+	return this;
+}public ManageContact enterContactDetailsDeleveritime(String deliverytime) {
 	deliverytimeField.clear();
 	deliverytimeField.sendKeys(deliverytime);
+	return this;
 }
-public void enterContactDetailsDeliverycharge(String deliverycharge) {
+public ManageContact enterContactDetailsDeliverycharge(String deliverycharge) {
 	deliverychargelimitField.clear();
 	deliverychargelimitField.sendKeys(deliverycharge);
+	return this;
 }
-public void clickOnUpdateButton() {
+public ManageContact clickOnUpdateButton() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, update);
+	return this;
 }
-public boolean alertMessage() {
+public boolean isAlertDisplayed() {
 	PageUtility pageutility=new PageUtility();
-	return pageutility.alertDisplay(alert);
+	return pageutility.isAlertDisplay(alert);
 }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class ManageFooter {
 		WebDriver driver;
@@ -15,9 +16,6 @@ public class ManageFooter {
 			PageFactory.initElements(driver , this);
 			
 		}
-		@FindBy(xpath="//input[@placeholder=\"Username\"]") WebElement usernameField;
-		@FindBy(xpath="//input[@placeholder=\"Password\"]") WebElement PasswordField;
-		@FindBy(xpath="//button[@type=\"submit\"]") WebElement LoginButton;
 		@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[7]/div/a")WebElement moreinfo;
 		@FindBy(xpath="//a[@href=\"https://groceryapp.uniqassosiates.com/admin/Footertext/edit?edit=1\"]")WebElement action;
 		@FindBy(xpath="//textarea[@placeholder=\"Enter the Address\"]")WebElement addressField;
@@ -25,38 +23,37 @@ public class ManageFooter {
 		@FindBy(xpath="//input[@id=\"phone\"]")WebElement phonenoField;
 		@FindBy(xpath="//button[@name=\"Update\"]")WebElement update;
 		@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
-		public void enterUsernameOnUsernameField(String username) {
-			   usernameField.sendKeys(username);
-			}
-			public void enterPasswordOnPasswordField(String password) {
-				PasswordField.sendKeys(password);
-			}
-			public void clickOnSignInButton() {
-				LoginButton.click();
-				}
-			public void clickOnMoreInfoButton() {
+			public ManageFooter clickOnMoreInfoButton() {
 				moreinfo.click();
+				return this;
 				}
-			public void clickOnActionButton() {
+			public ManageFooter clickOnActionButton() {
+				WaitUtility waitutility=new WaitUtility();
+				waitutility.waitForElementToBeClickable(driver, action);
 				action.click();
+				return this;
 			}
-			public void enterAddressOnAddressField(String address) {
+			public ManageFooter enterAddressOnAddressField(String address) {
 				addressField.clear();
 				addressField.sendKeys(address);
+				return this;
 			}
-			public void enterEmailOnEmailField(String email) {
+			public ManageFooter enterEmailOnEmailField(String email) {
 				emailField.clear();
 				emailField.sendKeys(email);
+				return this;
 			}
-			public void enterPhonenoOnField(String phoneno) {
+			public ManageFooter enterPhonenoOnField(String phoneno) {
 				phonenoField.clear();
 				phonenoField.sendKeys(phoneno);
+				return this;
 			}
-			public void clickOnUpdateField() {
+			public ManageFooter clickOnUpdateField() {
 				update.click();
+				return this;
 			}
 			public boolean alertDisplay() {
 				PageUtility pageutility=new PageUtility();
-				return pageutility.alertDisplay(alert);
+				return pageutility.isAlertDisplay(alert);
 			}
 }
