@@ -23,34 +23,28 @@ public class ManageFooter {
 		@FindBy(xpath="//input[@id=\"phone\"]")WebElement phonenoField;
 		@FindBy(xpath="//button[@name=\"Update\"]")WebElement update;
 		@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
-			public ManageFooter clickOnMoreInfoButton() {
+			public void clickOnMoreInfoButton() {
 				moreinfo.click();
-				return this;
 				}
-			public ManageFooter clickOnActionButton() {
+			public void clickOnActionButton() {
 				WaitUtility waitutility=new WaitUtility();
 				waitutility.waitForElementToBeClickable(driver, action);
 				action.click();
-				return this;
 			}
-			public ManageFooter enterAddressOnAddressField(String address) {
+			public void enterAddressOnAddressField(String address) {
 				addressField.clear();
 				addressField.sendKeys(address);
-				return this;
 			}
-			public ManageFooter enterEmailOnEmailField(String email) {
+			public void enterEmailOnEmailField(String email) {
 				emailField.clear();
 				emailField.sendKeys(email);
-				return this;
 			}
-			public ManageFooter enterPhonenoOnField(String phoneno) {
+			public void enterPhonenoOnField(String phoneno) {
 				phonenoField.clear();
 				phonenoField.sendKeys(phoneno);
-				return this;
 			}
-			public ManageFooter clickOnUpdateField() {
+			public void clickOnUpdateField() {
 				update.click();
-				return this;
 			}
 			public boolean alertDisplay() {
 				PageUtility pageutility=new PageUtility();

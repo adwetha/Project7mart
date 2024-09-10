@@ -26,43 +26,35 @@ public ManageCategory(WebDriver driver) {
 @FindBy(xpath="/html/body/div/div[1]/section/div/div/div/div/form/div/div[4]/div[2]/label[3]/input")WebElement showOnLeftMenu;
 @FindBy(xpath="//button[@class=\"btn btn-danger\"]")WebElement save;
 @FindBy(xpath="//i[@class=\"icon fas fa-check\"]")WebElement alert;
-public ManageCategory clickOnMoreInfo() {
+public void clickOnMoreInfo() {
 	moreInfo.click();
-	return this;
 }
-public ManageCategory clickOnNewCategory() {
+public void clickOnNewCategory() {
 	newCategory.click();
-	return this;
 }
-public ManageCategory enterCategoryOnCategoryField(String category) {
+public void enterCategoryOnCategoryField(String category) {
 	categoryField.sendKeys(category);
-	return this;
 }
-public ManageCategory clickOnRequiredGroup() {
+public void clickOnRequiredGroup() {
 	selectGroup.click();
-	return this;
 }
-public ManageCategory chooseTheRequiredFile(){
+public void chooseTheRequiredFile(){
 	FileUploadUtility fileuploadutility=new FileUploadUtility();
 	fileuploadutility.fileUploadUsingSendKeys(chooseFile, Constants.HELMETIMAGE);
-	return this;
 }
-public ManageCategory selectTheTopMenu() {
+public void selectTheTopMenu() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, showOnTopMenu);
 	//showOnTopMenu.click();
-	return this;
 }
-public ManageCategory selectTheLeftMenu() {
+public void selectTheLeftMenu() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, showOnLeftMenu);
 	//showOnLeftMenu.click();
-	return this;
 }
-public ManageCategory clickOnSaveButton() {
+public void clickOnSaveButton() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, save);
-	return this;
 }
 public boolean alertIsDisplayed() {
 	PageUtility pageutility=new PageUtility();

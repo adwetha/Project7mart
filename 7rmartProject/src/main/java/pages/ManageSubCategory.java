@@ -14,13 +14,11 @@ public  ManageSubCategory(WebDriver driver) {
 @FindBy(css="a.small-box-footer[href=\"https://groceryapp.uniqassosiates.com/admin/list-sub-category\"]")WebElement moreinfo;
 @FindBy(xpath="//a[@href=\"https://groceryapp.uniqassosiates.com/admin/Subcategory/status?id=527&st=inactive&page_ad=1\"]")WebElement active;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
-	public ManageSubCategory clickOnMoreInfo() {
+	public void clickOnMoreInfo() {
 		moreinfo.click();
-		return this;
 	}
-	public ManageSubCategory clickOnActiveButton() {
+	public void clickOnActiveButton() {
 		active.click();
-		return this;
 	}
 	public boolean alertMessage() {
 		return alert.isDisplayed();

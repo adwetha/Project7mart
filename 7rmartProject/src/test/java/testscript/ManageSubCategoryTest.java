@@ -19,7 +19,8 @@ public void VerifyWhetherUserCanChangeStatus() throws IOException {
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	ManageSubCategory managesubcategory=new ManageSubCategory(driver);
-	managesubcategory.clickOnMoreInfo().clickOnActiveButton();
+	managesubcategory.clickOnMoreInfo();
+	managesubcategory.clickOnActiveButton();
 	boolean alertMessage=managesubcategory.alertMessage();
 	assertTrue(alertMessage,Constants.ErrorManageSubCategory);
 }

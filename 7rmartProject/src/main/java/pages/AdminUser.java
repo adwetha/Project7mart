@@ -22,38 +22,31 @@ public AdminUser(WebDriver driver) {
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
 @FindBy(xpath="/html/body/div/div[1]/section/div[2]/div/div[3]/div[2]/table/tbody/tr[1]/td[5]/a[1]")WebElement lock;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alertmessage;
-	public AdminUser clickOnMoreInfo() {
+	public void clickOnMoreInfo() {
 		moreinfo.click();
-		return this;
 }
-	public AdminUser clickOnNewButton() {
+	public void clickOnNewButton() {
 		newadmin.click();
-		return this;
 	}
-	public AdminUser enterAdminUserInformationUsernameField(String adminusername) {
+	public void enterAdminUserInformationUsernameField(String adminusername) {
 		adminUserName.sendKeys(adminusername);
-		return this;
 	}
-	public AdminUser enterAdminUserInformationPasswordField(String adminpassword) {
+	public void enterAdminUserInformationPasswordField(String adminpassword) {
 		adminPassword.sendKeys(adminpassword);
-		return this;
 	}
-	public AdminUser selectAdminUserInformationUsertype() {
+	public void selectAdminUserInformationUsertype() {
 		PageUtility pageutility=new PageUtility();
         pageutility.selectByIndex(usertype, 1);
-		return this;
 	}
-	public AdminUser clickOnSaveButton() {
+	public void clickOnSaveButton() {
 		save.click();
-		return this;
 	}
 	public boolean alertMessage() {
 		PageUtility pageutility=new PageUtility();
 		return pageutility.isAlertDisplay(alert);
 	}
-	public AdminUser clickOnLockButton() {
+	public void clickOnLockButton() {
 		lock.click();
-		return this;
 	}
 	public boolean alertLockMessage() {
 		PageUtility pageutility=new PageUtility();

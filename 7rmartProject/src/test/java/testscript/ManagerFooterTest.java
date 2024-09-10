@@ -22,7 +22,12 @@ public void VerifyWhetherUserCanUpdateManageFooter() throws IOException {
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	ManageFooter managefooter=new ManageFooter(driver);
-	managefooter.clickOnMoreInfoButton().clickOnActionButton().enterAddressOnAddressField(address).enterEmailOnEmailField(email).enterPhonenoOnField(phoneno).clickOnUpdateField();
+	managefooter.clickOnMoreInfoButton();
+	managefooter.clickOnActionButton();
+	managefooter.enterAddressOnAddressField(address);
+	managefooter.enterEmailOnEmailField(email);
+	managefooter.enterPhonenoOnField(phoneno);
+	managefooter.clickOnUpdateField();
 	boolean alertmessage=managefooter.alertDisplay();
 	assertTrue(alertmessage,Constants.ErrorManageFooter);
 }
