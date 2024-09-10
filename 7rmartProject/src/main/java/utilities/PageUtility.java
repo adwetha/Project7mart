@@ -22,13 +22,13 @@ public class PageUtility {
 	public void messageAlert(WebDriver driver,String element) {
 		driver.switchTo().alert().sendKeys(element);
 	}
-	public boolean alertDisplay(WebElement element) {
+	public boolean isAlertDisplay(WebElement element) {
 		return element.isDisplayed();
 	}
-	public boolean alertSelected(WebElement element) {
+	public boolean isAlertSelected(WebElement element) {
 		return element.isSelected();
 	}
-	public boolean alertEnabled(WebElement element) {
+	public boolean isAlertEnabled(WebElement element) {
 		return element.isEnabled();
 	}
 	public void selectByVisibleText(WebElement element,String value) {

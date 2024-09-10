@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -18,11 +19,9 @@ public void VerifyWhetherUserIsAbleToLoginUsingValidCredentials() throws IOExcep
 	String username=ExcelUtility.getStringData(1, 0, "LoginPage");
 	String password=ExcelUtility.getStringData(1, 1, "LoginPage");
 	LoginPage loginpage=new LoginPage(driver);
-	loginpage.enterUsernameOnUsernameField(username);
-	loginpage.enterPasswordOnPasswordField(password);
-	loginpage.clickOnSignInButton();
+	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	boolean ishomepageloaded=loginpage.isHomePageLoaded();
-	assertTrue(ishomepageloaded,"Home page is not loaded when user enter valid credential");
+	assertTrue(ishomepageloaded,Constants.ErrorLogin);
 	}
 @Test(retryAnalyzer=retry.Retry.class, description="Verify that user is not able to login with invalid username and valid password",groups= {"smoke"})
 public void VerifyWhetherUserIsAbleToLoginUsingInvalidUsernameAndValidPassword() throws IOException {
@@ -31,11 +30,9 @@ public void VerifyWhetherUserIsAbleToLoginUsingInvalidUsernameAndValidPassword()
 	String username=ExcelUtility.getStringData(2, 0, "LoginPage");
 	String password=ExcelUtility.getStringData(2, 1, "LoginPage");
 	LoginPage loginpage=new LoginPage(driver);
-	loginpage.enterUsernameOnUsernameField(username);
-	loginpage.enterPasswordOnPasswordField(password);
-	loginpage.clickOnSignInButton();
+	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	boolean isAlertMessageDisplayed=loginpage.isAlertMessageDisplayed();
-	assertTrue(isAlertMessageDisplayed,"Home page is loaded when user enter invalid credential");
+	assertTrue(isAlertMessageDisplayed,Constants.ErrorIncorrectLogin);
 }
 @Test(description="Verify that user is not able to login with valid username and invalid password")
 public void VerifyWhetherUserIsAbleToLoginUsingValidUsernameAndInvalidPassword() throws IOException {
@@ -44,11 +41,9 @@ public void VerifyWhetherUserIsAbleToLoginUsingValidUsernameAndInvalidPassword()
 	String username=ExcelUtility.getStringData(3, 0, "LoginPage");
 	String password=ExcelUtility.getStringData(3, 1, "LoginPage");
 	LoginPage loginpage=new LoginPage(driver);
-	loginpage.enterUsernameOnUsernameField(username);
-	loginpage.enterPasswordOnPasswordField(password);
-	loginpage.clickOnSignInButton();
+	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	boolean isAlertMessageDisplayed=loginpage.isAlertMessageDisplayed();
-	assertTrue(isAlertMessageDisplayed,"Home page is loaded when user enter invalid credential");
+	assertTrue(isAlertMessageDisplayed,Constants.ErrorIncorrectLogin);
 }
 @Test(dataProvider="LoginProvider",description="Verify that user is not able to login with invalid usernme and invalid password")
 public void VerifyWhetherUserIsAbleToLoginUsingInvalidUsernameAndInvalidPassword(String username,String password) throws IOException {
@@ -57,11 +52,9 @@ public void VerifyWhetherUserIsAbleToLoginUsingInvalidUsernameAndInvalidPassword
 	//String username=ExcelUtility.getStringData(4, 0, "LoginPage");
 	//String password=ExcelUtility.getStringData(4, 1, "LoginPage");
 	LoginPage loginpage=new LoginPage(driver);
-	loginpage.enterUsernameOnUsernameField(username);
-	loginpage.enterPasswordOnPasswordField(password);
-	loginpage.clickOnSignInButton();
+	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	boolean isAlertMessageDisplayed=loginpage.isAlertMessageDisplayed();
-	assertTrue(isAlertMessageDisplayed,"Home page is loaded when user enter invalid credential");
+	assertTrue(isAlertMessageDisplayed,Constants.ErrorIncorrectLogin);
 }
 @DataProvider(name="LoginProvider")
 	public Object[][] getDataFromTestData() throws IOException{
