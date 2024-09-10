@@ -24,7 +24,14 @@ public void VerifyWhetherUserIsAbleToUpdateManageContact() throws IOException {
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	ManageContact managecontact=new ManageContact(driver);
-	managecontact.clickMoreinfoButton().clickOnActionButton().enterContactDetailsPhoneNo(phoneno).enterContactDetailsEmailid(emailid).enterContactDetailsAddress(address).enterContactDetailsDeleveritime(deliverytime).enterContactDetailsDeliverycharge(deliverychargelimit).clickOnUpdateButton();
+	managecontact.clickMoreinfoButton();
+	managecontact.clickOnActionButton();
+	managecontact.enterContactDetailsPhoneNo(phoneno);
+	managecontact.enterContactDetailsEmailid(emailid);
+	managecontact.enterContactDetailsAddress(address);
+	managecontact.enterContactDetailsDeleveritime(deliverytime);
+	managecontact.enterContactDetailsDeliverycharge(deliverychargelimit);
+	managecontact.clickOnUpdateButton();
 	boolean alertMessage=managecontact.isAlertDisplayed();
 	assertTrue(alertMessage,Constants.ErrorManageContact);
 }

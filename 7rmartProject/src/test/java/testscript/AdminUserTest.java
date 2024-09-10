@@ -21,7 +21,12 @@ public void VerifyWhetherUserIsAbleToCreateNewUser() throws IOException {
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	AdminUser adminuser=new AdminUser(driver);
-	adminuser.clickOnMoreInfo().clickOnNewButton().enterAdminUserInformationUsernameField(adminusername).enterAdminUserInformationPasswordField(adminpassword).selectAdminUserInformationUsertype().clickOnSaveButton();
+	adminuser.clickOnMoreInfo();
+	adminuser.clickOnNewButton();
+	adminuser.enterAdminUserInformationUsernameField(adminusername);
+	adminuser.enterAdminUserInformationPasswordField(adminpassword);
+	adminuser.selectAdminUserInformationUsertype();
+	adminuser.clickOnSaveButton();
 	boolean alertMessage=adminuser.alertMessage();
 	assertTrue(alertMessage,Constants.ErrorAdminUserUpdate);
 }
@@ -32,7 +37,8 @@ public void VerifyWhetherAdminCanChangeLockStatus() throws IOException {
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 	AdminUser adminuser=new AdminUser(driver);
-	adminuser.clickOnMoreInfo().clickOnLockButton();
+	adminuser.clickOnMoreInfo();
+	adminuser.clickOnLockButton();
 	boolean alertmessage=adminuser.alertLockMessage();
 	assertTrue(alertmessage,Constants.ErrorAdminUserLock);
 }

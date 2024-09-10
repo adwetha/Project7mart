@@ -20,7 +20,10 @@ public class ManageNewsTest extends Base{
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 		ManageNews managenews=new ManageNews(driver);
-		managenews.clickOnMoreInfo().clickOnNew().enterNewNews(news).clickOnSave();
+		managenews.clickOnMoreInfo();
+		managenews.clickOnNew();
+		managenews.enterNewNews(news);
+		managenews.clickOnSave();
 		boolean  AlertMessageManageNews=managenews. AlertMessageManageNews();
 		assertTrue( AlertMessageManageNews,Constants.ErrorManageNews);
 	}
@@ -31,7 +34,9 @@ public class ManageNewsTest extends Base{
 		ManageNews managenews=new ManageNews(driver);
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
-		managenews.clickOnMoreInfo().clickOnDelete().alertAfterDelete();
+		managenews.clickOnMoreInfo();
+		managenews.clickOnDelete();
+		managenews.alertAfterDelete();
 		boolean alertdisplayed=managenews.alertIsDisplayed();
 		assertTrue(alertdisplayed,Constants.ErrorManageDeleteNews);
 	}

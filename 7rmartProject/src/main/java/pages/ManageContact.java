@@ -22,42 +22,34 @@ public ManageContact(WebDriver driver) {
 @FindBy(xpath="//input[@name=\"del_limit\"]")WebElement deliverychargelimitField;
 @FindBy(xpath="//button[@class=\"btn btn-block-sm btn-info\"]")WebElement update;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
-public ManageContact clickMoreinfoButton() {
+public void clickMoreinfoButton() {
 	moreinfo.click();
-	return this;
 }
-public ManageContact clickOnActionButton() {
+public void clickOnActionButton() {
 	action.click();
-	return this;
 }
-public ManageContact enterContactDetailsPhoneNo(String phoneno ) {
+public void enterContactDetailsPhoneNo(String phoneno ) {
 	phoneField.clear();
 	phoneField.sendKeys(phoneno);
-	return this;
 }
-public ManageContact enterContactDetailsEmailid(String email) {
+public void enterContactDetailsEmailid(String email) {
 	emailField.clear();
 	emailField.sendKeys(email);
-	return this;
 }
-public ManageContact enterContactDetailsAddress(String address) {
+public void enterContactDetailsAddress(String address) {
 	addressField.clear();
 	addressField.sendKeys(address);
-	return this;
-}public ManageContact enterContactDetailsDeleveritime(String deliverytime) {
+}public void enterContactDetailsDeleveritime(String deliverytime) {
 	deliverytimeField.clear();
 	deliverytimeField.sendKeys(deliverytime);
-	return this;
 }
-public ManageContact enterContactDetailsDeliverycharge(String deliverycharge) {
+public void enterContactDetailsDeliverycharge(String deliverycharge) {
 	deliverychargelimitField.clear();
 	deliverychargelimitField.sendKeys(deliverycharge);
-	return this;
 }
-public ManageContact clickOnUpdateButton() {
+public void clickOnUpdateButton() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, update);
-	return this;
 }
 public boolean isAlertDisplayed() {
 	PageUtility pageutility=new PageUtility();

@@ -21,34 +21,28 @@ public class ManageNews {
 	@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement newsalert;
 	@FindBy(xpath="//a[@href=\"https://groceryapp.uniqassosiates.com/admin/news/delete?del=1682&page_ad=1\"]")WebElement delete;
 	@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement deleteAlert;
-	public ManageNews clickOnMoreInfo() {
+	public void clickOnMoreInfo() {
 		newsgetinfo.click();
-		return this;
 	}
-	public ManageNews clickOnNew() {
+	public void clickOnNew() {
 		newnews.click();
-		return this;
 	}
-	public ManageNews enterNewNews(String news) {
+	public void enterNewNews(String news) {
 		enternews.sendKeys(news);
-		return this;
 	}
-	public ManageNews clickOnSave() {
+	public void clickOnSave() {
 		newssave.click();
-		return this;
 	}
 		public boolean AlertMessageManageNews() {
 			PageUtility pageutility=new PageUtility();
 		return pageutility.isAlertDisplay(newsalert);
 	}
-		public ManageNews clickOnDelete() {
+		public void clickOnDelete() {
 		  delete.click();
-		return this;
 		}
-		public ManageNews alertAfterDelete() {
+		public void alertAfterDelete() {
 			PageUtility pageutility=new PageUtility();
 			pageutility.acceptAlert(driver);
-			return this;
 		}
 		public boolean alertIsDisplayed() {
 			PageUtility pageutility=new PageUtility();

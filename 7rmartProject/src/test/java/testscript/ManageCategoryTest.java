@@ -19,7 +19,14 @@ public void verifyWhetherUserCanAddCategory ()throws IOException{
 	LoginPage loginpage=new LoginPage(driver);
 	ManageCategory managecategory=new ManageCategory(driver);
 	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
-	managecategory.clickOnMoreInfo().clickOnNewCategory().enterCategoryOnCategoryField(category).clickOnRequiredGroup().chooseTheRequiredFile().selectTheTopMenu().selectTheLeftMenu().clickOnSaveButton();
+	managecategory.clickOnMoreInfo();
+	managecategory.clickOnNewCategory();
+	managecategory.enterCategoryOnCategoryField(category);
+	managecategory.clickOnRequiredGroup();
+	managecategory.chooseTheRequiredFile();
+	managecategory.selectTheTopMenu();
+	managecategory.selectTheLeftMenu();
+	managecategory.clickOnSaveButton();
 	boolean alertMessage=managecategory.alertIsDisplayed();
 	assertTrue(alertMessage,Constants.ErrorManageCategory);
 }

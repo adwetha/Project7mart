@@ -18,12 +18,11 @@ public class ManageProduct {
 	@FindBy(xpath="/html/body/div/div[1]/section/div/div/div[7]/div/a")WebElement managegetinfo;
 	@FindBy(xpath="/html/body/div/div[1]/section/div[4]/div[2]/table/tbody/tr[1]/td[9]/a[2]/i")WebElement deletemanageproduct;
 	@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement deletealert;
-	public ManageProduct DeleteFromManageProduct() {
+	public void DeleteFromManageProduct() {
 		managegetinfo.click();
 		deletemanageproduct.click();
 		PageUtility pageutility=new PageUtility();
 		pageutility.acceptAlert(driver);
-		return this;
 	}
 	public boolean alertMessageDisplayed() {
 		PageUtility pageutility=new PageUtility();

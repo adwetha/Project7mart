@@ -7,9 +7,9 @@
 </listeners>
   <test thread-count="5" name="TestNG.xml">
     <classes>
-      <class name="testscript.LoginTest">
+      <class name="testscript.ManageNewsTest">
       <methods>
-		 <include name="VerifyWhetherUserIsAbleToLoginUsingInvalidUsernameAndInvalidPassword"></include>
+		 <include name="VerifyWhetherUserIsAbleToAddNews"></include>
 	  </methods>
 	  </class>
     </classes>
