@@ -7,13 +7,13 @@
   </listeners>
   <test thread-count="5" name="TestNG.xml(failed)">
     <classes>
-      <class name="testscript.ManageProductTest">
+      <class name="testscript.ManagerFooterTest">
         <methods>
           <include name="initialiseBrowser"/>
           <include name="browserQuit"/>
-          <include name="VerifyWhetherUserIsAbleToDeleteProductList"/>
+          <include name="VerifyWhetherUserCanUpdateManageFooter"/>
         </methods>
-      </class> <!-- testscript.ManageProductTest -->
+      </class> <!-- testscript.ManagerFooterTest -->
     </classes>
   </test> <!-- TestNG.xml(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -11,9 +11,9 @@ import constants.Constants;
 import utilities.FileUploadUtility;
 import utilities.PageUtility;
 
-public class ManageCategory {
+public class ManageCategoryPage {
 WebDriver driver;
-public ManageCategory(WebDriver driver) {
+public ManageCategoryPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 }
@@ -32,7 +32,7 @@ public void clickOnMoreInfo() {
 public void clickOnNewCategory() {
 	newCategory.click();
 }
-public void enterCategoryOnCategoryField(String category) {
+public void enterCategoryField(String category) {
 	categoryField.sendKeys(category);
 }
 public void clickOnRequiredGroup() {
@@ -45,18 +45,16 @@ public void chooseTheRequiredFile(){
 public void selectTheTopMenu() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, showOnTopMenu);
-	//showOnTopMenu.click();
 }
 public void selectTheLeftMenu() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, showOnLeftMenu);
-	//showOnLeftMenu.click();
 }
 public void clickOnSaveButton() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, save);
 }
-public boolean alertIsDisplayed() {
+public boolean isAlertDisplayed() {
 	PageUtility pageutility=new PageUtility();
 	return pageutility.isAlertDisplay(alert);
 }

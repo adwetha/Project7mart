@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
 
-public class ManageNews {
+public class ManageNewsPage {
 	WebDriver driver;
-	public ManageNews(WebDriver driver)
+	public ManageNewsPage(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver , this);
@@ -21,30 +21,35 @@ public class ManageNews {
 	@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement newsalert;
 	@FindBy(xpath="//a[@href=\"https://groceryapp.uniqassosiates.com/admin/news/delete?del=1682&page_ad=1\"]")WebElement delete;
 	@FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement deleteAlert;
-	public void clickOnMoreInfo() {
+	public ManageNewsPage clickOnMoreInfo() {
 		newsgetinfo.click();
+		return this;
 	}
-	public void clickOnNew() {
+	public ManageNewsPage clickOnNew() {
 		newnews.click();
+		return this;
 	}
-	public void enterNewNews(String news) {
+	public ManageNewsPage enterNewNews(String news) {
 		enternews.sendKeys(news);
+		return this;
 	}
-	public void clickOnSave() {
+	public ManageNewsPage clickOnSave() {
 		newssave.click();
+		return this;
 	}
-		public boolean AlertMessageManageNews() {
+		public boolean isAlertManageNewsDisplayed() {
 			PageUtility pageutility=new PageUtility();
 		return pageutility.isAlertDisplay(newsalert);
 	}
-		public void clickOnDelete() {
+		public ManageProductPage clickOnDelete() {
 		  delete.click();
+		return new ManageProductPage(driver);
 		}
 		public void alertAfterDelete() {
 			PageUtility pageutility=new PageUtility();
 			pageutility.acceptAlert(driver);
 		}
-		public boolean alertIsDisplayed() {
+		public boolean isAlertDisplayed() {
 			PageUtility pageutility=new PageUtility();
 			return pageutility.isAlertDisplay(deleteAlert);
 		}
