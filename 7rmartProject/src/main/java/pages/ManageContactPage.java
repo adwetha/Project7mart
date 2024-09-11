@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
 
-public class ManageContact {
+public class ManageContactPage {
 WebDriver driver;
-public ManageContact(WebDriver driver) {
+public ManageContactPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 }
-@FindBy(css="a.small-box-footer[href=\"https://groceryapp.uniqassosiates.com/admin/list-contact\"]")WebElement moreinfo;
+
 @FindBy(xpath="//a[@class=\"btn btn-sm btn btn-primary btncss\"]")WebElement action;
 @FindBy(xpath="//input[@name=\"phone\"]")WebElement phoneField;
 @FindBy(xpath="//input[@id=\"email\"]")WebElement emailField;
@@ -22,34 +22,39 @@ public ManageContact(WebDriver driver) {
 @FindBy(xpath="//input[@name=\"del_limit\"]")WebElement deliverychargelimitField;
 @FindBy(xpath="//button[@class=\"btn btn-block-sm btn-info\"]")WebElement update;
 @FindBy(xpath="//div[@class=\"alert alert-success alert-dismissible\"]")WebElement alert;
-public void clickMoreinfoButton() {
-	moreinfo.click();
-}
-public void clickOnActionButton() {
+
+public ManageContactPage clickOnActionButton() {
 	action.click();
+	return this;
 }
-public void enterContactDetailsPhoneNo(String phoneno ) {
+public ManageContactPage enterPhoneNo(String phoneno ) {
 	phoneField.clear();
 	phoneField.sendKeys(phoneno);
+	return this;
 }
-public void enterContactDetailsEmailid(String email) {
+public ManageContactPage enterEmailid(String email) {
 	emailField.clear();
 	emailField.sendKeys(email);
+	return this;
 }
-public void enterContactDetailsAddress(String address) {
+public ManageContactPage enterAddress(String address) {
 	addressField.clear();
 	addressField.sendKeys(address);
-}public void enterContactDetailsDeleveritime(String deliverytime) {
+	return this;
+}public ManageContactPage enterDeliverytime(String deliverytime) {
 	deliverytimeField.clear();
 	deliverytimeField.sendKeys(deliverytime);
+	return this;
 }
-public void enterContactDetailsDeliverycharge(String deliverycharge) {
+public ManageContactPage enterDeliverycharge(String deliverycharge) {
 	deliverychargelimitField.clear();
 	deliverychargelimitField.sendKeys(deliverycharge);
+	return this;
 }
-public void clickOnUpdateButton() {
+public ManageFooterPage clickOnUpdateButton() {
 	PageUtility pageutility=new PageUtility();
 	pageutility.javaSriptClick(driver, update);
+	return new ManageFooterPage(driver);
 }
 public boolean isAlertDisplayed() {
 	PageUtility pageutility=new PageUtility();

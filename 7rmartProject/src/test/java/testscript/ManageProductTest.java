@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import constants.Constants;
 import pages.LoginPage;
-import pages.ManageProduct;
+import pages.ManageProductPage;
 import utilities.ExcelUtility;
 
 public class ManageProductTest extends Base{
@@ -17,10 +17,10 @@ public class ManageProductTest extends Base{
 		String username=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password=ExcelUtility.getStringData(1, 1, "LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
-		ManageProduct manageproduct=new ManageProduct(driver);
+		loginpage.enterUsername(username).enterPassword(password).clickOnSignInButton();
+		ManageProductPage manageproduct=new ManageProductPage(driver);
 		manageproduct.DeleteFromManageProduct();
-		boolean alertmessagedisplayed=manageproduct.alertMessageDisplayed();
-		assertTrue(alertmessagedisplayed,Constants.ErrorManageProduct);
+		boolean isalertmessagedisplayed=manageproduct.isAlertDisplayed();
+		assertTrue(isalertmessagedisplayed,Constants.ErrorManageProduct);
 	}
 }

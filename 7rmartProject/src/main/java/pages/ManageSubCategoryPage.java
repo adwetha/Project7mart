@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ManageSubCategory {
+public class ManageSubCategoryPage {
 WebDriver driver;
-public  ManageSubCategory(WebDriver driver) {
+public  ManageSubCategoryPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver,this);
 }
@@ -20,7 +20,7 @@ public  ManageSubCategory(WebDriver driver) {
 	public void clickOnActiveButton() {
 		active.click();
 	}
-	public boolean alertMessage() {
+	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();
 	}
 }

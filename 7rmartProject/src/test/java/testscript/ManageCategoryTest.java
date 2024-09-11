@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import constants.Constants;
 import pages.LoginPage;
-import pages.ManageCategory;
+import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base{
@@ -17,17 +17,17 @@ public void verifyWhetherUserCanAddCategory ()throws IOException{
 	String password=ExcelUtility.getStringData(1, 1, "LoginPage");
 	String category=ExcelUtility.getStringData(1, 2, "ManageCategory");
 	LoginPage loginpage=new LoginPage(driver);
-	ManageCategory managecategory=new ManageCategory(driver);
-	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
+	ManageCategoryPage managecategory=new ManageCategoryPage(driver);
+	loginpage.enterUsername(username).enterPassword(password).clickOnSignInButton();
 	managecategory.clickOnMoreInfo();
 	managecategory.clickOnNewCategory();
-	managecategory.enterCategoryOnCategoryField(category);
+	managecategory.enterCategoryField(category);
 	managecategory.clickOnRequiredGroup();
 	managecategory.chooseTheRequiredFile();
 	managecategory.selectTheTopMenu();
 	managecategory.selectTheLeftMenu();
 	managecategory.clickOnSaveButton();
-	boolean alertMessage=managecategory.alertIsDisplayed();
-	assertTrue(alertMessage,Constants.ErrorManageCategory);
+	boolean isAlertMessageDisplayed=managecategory.isAlertDisplayed();
+	assertTrue(isAlertMessageDisplayed,Constants.ErrorManageCategory);
 }
 }

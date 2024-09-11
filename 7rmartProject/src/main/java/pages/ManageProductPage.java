@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
 
-public class ManageProduct {
+public class ManageProductPage {
 	WebDriver driver;
-	public ManageProduct(WebDriver driver)
+	public ManageProductPage(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver , this);
@@ -24,7 +24,7 @@ public class ManageProduct {
 		PageUtility pageutility=new PageUtility();
 		pageutility.acceptAlert(driver);
 	}
-	public boolean alertMessageDisplayed() {
+	public boolean isAlertDisplayed() {
 		PageUtility pageutility=new PageUtility();
 		return pageutility.isAlertDisplay(deletealert);
 	}

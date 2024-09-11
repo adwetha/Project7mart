@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import constants.Constants;
 import pages.LoginPage;
-import pages.ManageSubCategory;
+import pages.ManageSubCategoryPage;
 import utilities.ExcelUtility;
 
 public class ManageSubCategoryTest extends Base{
@@ -17,11 +17,11 @@ public void VerifyWhetherUserCanChangeStatus() throws IOException {
 	String username=ExcelUtility.getStringData(1, 0, "LoginPage");
 	String password=ExcelUtility.getStringData(1, 1, "LoginPage");
 	LoginPage loginpage=new LoginPage(driver);
-	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
-	ManageSubCategory managesubcategory=new ManageSubCategory(driver);
+	loginpage.enterUsername(username).enterPassword(password).clickOnSignInButton();
+	ManageSubCategoryPage managesubcategory=new ManageSubCategoryPage(driver);
 	managesubcategory.clickOnMoreInfo();
 	managesubcategory.clickOnActiveButton();
-	boolean alertMessage=managesubcategory.alertMessage();
-	assertTrue(alertMessage,Constants.ErrorManageSubCategory);
+	boolean isAlertDisplayed=managesubcategory.isAlertDisplayed();
+	assertTrue(isAlertDisplayed,Constants.ErrorManageSubCategory);
 }
 }

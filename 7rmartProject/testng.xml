@@ -7,10 +7,10 @@
 </listeners>
   <test thread-count="5" name="TestNG.xml">
     <classes>
-      <class name="testscript.ManageNewsTest">
-      <methods>
-		 <include name="VerifyWhetherUserIsAbleToAddNews"></include>
-	  </methods>
+      <class name="testscript.ManagerFooterTest">
+     <!-- <methods>
+		 <include name="VerifyWhetherUserIsAbleToCreateNewUser"></include>
+	  </methods>-->
 	  </class>
     </classes>
   </test> <!-- TestNG.xml -->
